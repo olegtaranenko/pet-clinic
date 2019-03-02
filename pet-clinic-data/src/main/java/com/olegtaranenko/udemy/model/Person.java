@@ -1,6 +1,6 @@
 package com.olegtaranenko.udemy.model;
 
-public class Person {
+public class Person extends BaseEntity{
 
     private String firstName;
 
