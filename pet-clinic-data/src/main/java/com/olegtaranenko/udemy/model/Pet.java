@@ -1,4 +1,4 @@
-package com.olegtaranenko.udemy.petclinic.model;
+package com.olegtaranenko.udemy.model;
 
 import java.time.LocalDate;
 
