@@ -11,9 +11,8 @@ public abstract class AbstractMapService<T, ID>  {
         return map.get(id);
     }
 
-    T save(T object) {
-//        ID id = object.getId();
-//        map.put(id, object);
+    T save(ID id, T object) {
+        map.put(id, object);
         return object;
     }
 
