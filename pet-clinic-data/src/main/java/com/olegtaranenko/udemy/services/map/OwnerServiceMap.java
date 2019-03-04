@@ -1,19 +1,18 @@
 package com.olegtaranenko.udemy.services.map;
 
 import com.olegtaranenko.udemy.model.Owner;
-import com.olegtaranenko.udemy.model.Vet;
 import com.olegtaranenko.udemy.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
 
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
-//        return super.findAll();
-//        return this.findAll();
     }
 
     @Override
