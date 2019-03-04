@@ -5,7 +5,7 @@ import com.olegtaranenko.udemy.services.PetService;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
+public class PetServiceMap extends AbstractMapService<Pet> implements PetService {
 
     @Override
     public Set<Pet> findAll() {
@@ -19,7 +19,7 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
 
     @Override
     public Pet save(Pet pet) {
-        return super.save(pet.getId(), pet);
+        return super.save(pet);
     }
 
     @Override
