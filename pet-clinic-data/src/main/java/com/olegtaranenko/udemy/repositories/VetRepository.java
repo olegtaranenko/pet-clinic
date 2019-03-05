@@ -2,9 +2,9 @@ package com.olegtaranenko.udemy.repositories;
 
 
 import com.olegtaranenko.udemy.model.Owner;
+import com.olegtaranenko.udemy.model.Vet;
 import org.springframework.data.repository.CrudRepository;
 
-public interface OwnerRepository extends CrudRepository<Owner, Long> {
+public interface VetRepository extends CrudRepository<Vet, Long> {
 
-    Owner findByLastName(String name);
 }
