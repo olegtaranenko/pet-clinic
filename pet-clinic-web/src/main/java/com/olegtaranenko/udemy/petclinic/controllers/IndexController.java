@@ -9,7 +9,11 @@ public class IndexController {
 
     @RequestMapping({"", "/", "index", "index.html"})
     public String index(Model model) {
-//        model.addAttribute("welcome", "Welcome !");
         return "index";
+    }
+
+    @RequestMapping("/oups")
+    public String notimplemented() {
+        return "notimplemented";
     }
 }
