@@ -5,9 +5,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Setter
 @Getter
-//@NoArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class Vet extends Person {
+
+    private Set<Speciality> specialitys;
+
+    public Set<Speciality> getSpecialitys() {
+        return specialitys;
+    }
+
+    public void setSpecialitys(Set<Speciality> specialitys) {
+        this.specialitys = specialitys;
+    }
 }

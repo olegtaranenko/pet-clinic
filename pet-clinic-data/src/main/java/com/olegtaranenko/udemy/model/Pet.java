@@ -3,11 +3,27 @@ package com.olegtaranenko.udemy.model;
 import java.time.LocalDate;
 
 public class Pet extends BaseEntity {
+    private String name;
+
     private PetType petType;
 
     private Owner owner;
 
     private LocalDate birthDate;
+
+    public Pet(PetType petType, String name) {
+        super();
+        this.petType = petType;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public PetType getPetType() {
         return petType;

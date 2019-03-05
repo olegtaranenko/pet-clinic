@@ -1,53 +1,74 @@
 package com.olegtaranenko.udemy.petclinic.bootstrap;
 
-import com.olegtaranenko.udemy.model.Owner;
-import com.olegtaranenko.udemy.model.Vet;
-import com.olegtaranenko.udemy.services.OwnerService;
-import com.olegtaranenko.udemy.services.VetService;
+import com.olegtaranenko.udemy.model.*;
+import com.olegtaranenko.udemy.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
+    private final PetService petService;
+    private final SpecialityService specialityService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, PetService petService, SpecialityService specialityService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
+        this.petService = petService;
+        this.specialityService = specialityService;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        Owner owner1 = new Owner();
-        long id = 1L;
-        owner1.setId(id);
-        owner1.setFirstName("Irina");
-        owner1.setLasttName("Taranenko");
-        ownerService.save(owner1);
+        PetType dogsType = petTypeService.save(new PetType("Dog"));
+        PetType catsType = petTypeService.save(new PetType("Cat"));
 
-        Owner owner2 = new Owner();
-        long id2 = 2L;
-        owner2.setId(id2);
-        owner2.setFirstName("Jessica");
-        owner2.setLasttName("Lang");
-        ownerService.save(owner2);
+
+        Owner irisha = new Owner();
+        irisha.setFirstName("Irina");
+        irisha.setLasttName("Taranenko");
+        irisha.setAddress("Taubestr 7");
+        irisha.setCity("Leipzig");
+        irisha.setTelephone("+49 179 5425012");
+        Pet bonita = new Pet(dogsType,"Bonita");
+        bonita.setOwner(irisha);
+        bonita.setBirthDate(LocalDate.parse("2012-04-29"));
+        irisha.getPets().add(bonita);
+
+        ownerService.save(irisha);
+
+        Owner mak = new Owner();
+        mak.setAddress("Alterbergstr 12");
+        mak.setCity("Lahr");
+        mak.setTelephone("+49 152 123420874");
+        mak.setFirstName("Irina");
+        mak.setLasttName("Mak");
+        Pet cosmos = new Pet(catsType,"Kosmos");
+        cosmos.setBirthDate(LocalDate.parse("2013-01-12"));
+        mak.getPets().add(cosmos);
+        ownerService.save(mak);
 
         System.out.println("Loaded Owners");
-        
+
+        Speciality radio = specialityService.save(new Speciality("Radiology"));
+        Speciality immuno = specialityService.save(new Speciality("Immunology"));
+
         Vet vet1 = new Vet();
-        long id3 = 3L;
-        vet1.setId(id3);
         vet1.setFirstName("Spoch");
         vet1.setLasttName("Ben");
+        vet1.getSpecialitys().add(radio);
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
-        long id4 = 4L;
-        vet2.setId(id4);
         vet2.setFirstName("Winny");
         vet2.setLasttName("Puh");
+        vet2.getSpecialitys().add(immuno);
         vetService.save(vet2);
 
         System.out.println("Loaded Vets");

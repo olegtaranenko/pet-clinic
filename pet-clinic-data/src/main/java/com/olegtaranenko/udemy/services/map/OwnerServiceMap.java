@@ -1,7 +1,10 @@
 package com.olegtaranenko.udemy.services.map;
 
 import com.olegtaranenko.udemy.model.Owner;
+import com.olegtaranenko.udemy.model.Pet;
 import com.olegtaranenko.udemy.services.OwnerService;
+import com.olegtaranenko.udemy.services.PetService;
+import com.olegtaranenko.udemy.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -9,6 +12,13 @@ import java.util.Set;
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner> implements OwnerService {
 
+    private final PetTypeService petTypeService;
+    private final PetService petService;
+
+    public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
+        this.petTypeService = petTypeService;
+        this.petService = petService;
+    }
 
     @Override
     public Set<Owner> findAll() {
@@ -27,6 +37,20 @@ public class OwnerServiceMap extends AbstractMapService<Owner> implements OwnerS
 
     @Override
     public Owner save(Owner object) {
+        if (object != null) {
+            if (object.getPets() != null) {
+                object.getPets().forEach(pet -> {
+                    if (pet.getPetType().getId() == null) {
+                        pet.setPetType(petTypeService.save(pet.getPetType()));
+                    }
+                    if (pet.getId() == null) {
+                        petService.save(pet);
+//                        object.getPets().add(s)
+                    }
+                });
+            }
+        }
+
         return super.save(object);
     }
 
