@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Setter
 @Getter
-//@NoArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class Vet extends Person {
 

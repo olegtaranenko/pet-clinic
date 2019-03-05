@@ -2,9 +2,11 @@ package com.olegtaranenko.udemy.services.map;
 
 import com.olegtaranenko.udemy.model.PetType;
 import com.olegtaranenko.udemy.services.PetTypeService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetTypeServiceMap extends AbstractMapService<PetType> implements PetTypeService {
 
     @Override

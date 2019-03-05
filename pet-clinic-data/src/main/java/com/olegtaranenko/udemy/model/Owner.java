@@ -11,6 +11,9 @@ public class Owner extends Person {
 
     private String telephone;
 
+    public Owner() {
+    }
+
     public Owner(Set<Pet> pets) {
         this.pets = pets;
     }
