@@ -32,7 +32,7 @@ public class DataLoader implements CommandLineRunner {
 
         Owner irisha = new Owner();
         irisha.setFirstName("Irina");
-        irisha.setLasttName("Taranenko");
+        irisha.setLastName("Taranenko");
         irisha.setAddress("Taubestr 7");
         irisha.setCity("Leipzig");
         irisha.setTelephone("+49 179 5425012");
@@ -48,7 +48,7 @@ public class DataLoader implements CommandLineRunner {
         mak.setCity("Lahr");
         mak.setTelephone("+49 152 123420874");
         mak.setFirstName("Irina");
-        mak.setLasttName("Mak");
+        mak.setLastName("Mak");
         Pet cosmos = new Pet(catsType,"Kosmos");
         cosmos.setBirthDate(LocalDate.parse("2013-01-12"));
         mak.getPets().add(cosmos);
@@ -61,13 +61,13 @@ public class DataLoader implements CommandLineRunner {
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Spoch");
-        vet1.setLasttName("Ben");
+        vet1.setLastName("Ben");
         vet1.getSpeciality().add(radio);
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
         vet2.setFirstName("Winny");
-        vet2.setLasttName("Puh");
+        vet2.setLastName("Puh");
         vet2.getSpeciality().add(immuno);
         vetService.save(vet2);
 
