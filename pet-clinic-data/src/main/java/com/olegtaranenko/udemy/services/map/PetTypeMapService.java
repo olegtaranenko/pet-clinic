@@ -2,11 +2,13 @@ package com.olegtaranenko.udemy.services.map;
 
 import com.olegtaranenko.udemy.model.PetType;
 import com.olegtaranenko.udemy.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"map", "default"})
 public class PetTypeMapService extends AbstractMapService<PetType> implements PetTypeService {
 
     @Override

@@ -2,11 +2,13 @@ package com.olegtaranenko.udemy.services.map;
 
 import com.olegtaranenko.udemy.model.Speciality;
 import com.olegtaranenko.udemy.services.SpecialityService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"map", "default"})
 public class SpecialityMapService extends AbstractMapService<Speciality> implements SpecialityService {
 
     @Override

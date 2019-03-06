@@ -3,11 +3,13 @@ package com.olegtaranenko.udemy.services.map;
 import com.olegtaranenko.udemy.model.Vet;
 import com.olegtaranenko.udemy.services.SpecialityService;
 import com.olegtaranenko.udemy.services.VetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"map", "default"})
 public class VetMapService extends AbstractMapService<Vet> implements VetService {
 
     private final SpecialityService specialityService;
