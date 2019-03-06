@@ -1,4 +1,4 @@
-package com.olegtaranenko.udemy.petclinic.controllers;
+package com.olegtaranenko.udemy.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,4 @@
-package com.olegtaranenko.udemy.petclinic.bootstrap;
+package com.olegtaranenko.udemy.bootstrap;
 
 import com.olegtaranenko.udemy.model.*;
 import com.olegtaranenko.udemy.services.*;

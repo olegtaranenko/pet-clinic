@@ -1,4 +1,4 @@
-package com.olegtaranenko.udemy.petclinic;
+package com.olegtaranenko.udemy;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
