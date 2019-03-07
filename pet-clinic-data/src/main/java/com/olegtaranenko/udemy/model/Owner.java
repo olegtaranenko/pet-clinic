@@ -1,9 +1,14 @@
 package com.olegtaranenko.udemy.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "owners")
 public class Owner extends Person {
@@ -19,42 +24,15 @@ public class Owner extends Person {
     @Column(name = "telephone")
     private String telephone;
 
-    public Owner() {
-    }
-
-    public Owner(Set<Pet> pets) {
-        this.pets = pets;
-    }
-
-    public Set<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(Set<Pet> pets) {
-        this.pets = pets;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
+//  TODO this not works, throws exception on compile
+//  Error:(27, 5) java: builder() in com.olegtaranenko.udemy.model.Owner cannot hide builder() in com.olegtaranenko.udemy.model.Person
+//  return type com.olegtaranenko.udemy.model.Owner.OwnerBuilder is not compatible with com.olegtaranenko.udemy.model.Person.PersonBuilder
+//    @Builder
+    public Owner(String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
+        super(firstName, lastName);
         this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
         this.telephone = telephone;
+        this.pets = pets;
     }
 }
