@@ -28,7 +28,7 @@ public class OwnerJPAService implements OwnerService {
     public Set<Owner> findAll() {
         Set<Owner> owners = new HashSet<>();
 
-        owners.addAll(ownerRepository.findAll());
+        ownerRepository.findAll().forEach(owners::add);
 
         return owners;
     }
