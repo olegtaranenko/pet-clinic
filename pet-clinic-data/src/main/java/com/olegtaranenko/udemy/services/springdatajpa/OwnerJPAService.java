@@ -2,8 +2,6 @@ package com.olegtaranenko.udemy.services.springdatajpa;
 
 import com.olegtaranenko.udemy.model.Owner;
 import com.olegtaranenko.udemy.repositories.OwnerRepository;
-import com.olegtaranenko.udemy.repositories.PetRepository;
-import com.olegtaranenko.udemy.repositories.PetTypeRepository;
 import com.olegtaranenko.udemy.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

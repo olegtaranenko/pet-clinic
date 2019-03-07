@@ -9,6 +9,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "owners")
 public class Owner extends Person {
@@ -24,12 +25,9 @@ public class Owner extends Person {
     @Column(name = "telephone")
     private String telephone;
 
-//  TODO this not works, throws exception on compile
-//  Error:(27, 5) java: builder() in com.olegtaranenko.udemy.model.Owner cannot hide builder() in com.olegtaranenko.udemy.model.Person
-//  return type com.olegtaranenko.udemy.model.Owner.OwnerBuilder is not compatible with com.olegtaranenko.udemy.model.Person.PersonBuilder
-//    @Builder
-    public Owner(String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
-        super(firstName, lastName);
+    @Builder
+    public Owner(Long id, String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
+        super(id, firstName, lastName);
         this.address = address;
         this.city = city;
         this.telephone = telephone;

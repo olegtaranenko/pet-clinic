@@ -9,8 +9,6 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-//@Builder
 @Entity
 @Table(name = "vets")
 public class Vet extends Person {
@@ -20,4 +18,10 @@ public class Vet extends Person {
             joinColumns = @JoinColumn(name = "vet_id"),
             inverseJoinColumns = @JoinColumn(name = "speciality_id"))
     private Set<Speciality> speciality = new HashSet<>();
+
+    @Builder
+    public Vet(Long id, String firstName, String lastName, Set<Speciality> speciality) {
+        super(id, firstName, lastName);
+        this.speciality = speciality;
+    }
 }

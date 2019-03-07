@@ -39,7 +39,7 @@ public class DataLoader implements CommandLineRunner {
         irisha.setAddress("Taubestr 7");
         irisha.setCity("Leipzig");
         irisha.setTelephone("+49 179 5425012");
-        Pet bonita = new Pet(dogsType,"Bonita");
+        Pet bonita = Pet.builder().petType(dogsType).name("Bonita").build();
         bonita.setOwner(irisha);
         bonita.setBirthDate(LocalDate.parse("2012-04-29"));
         irisha.getPets().add(bonita);
@@ -52,7 +52,7 @@ public class DataLoader implements CommandLineRunner {
         mak.setTelephone("+49 152 123420874");
         mak.setFirstName("Irina");
         mak.setLastName("Mak");
-        Pet cosmos = new Pet(catsType,"Kosmos");
+        Pet cosmos = Pet.builder().petType(catsType).name("Kosmos").build();
         cosmos.setBirthDate(LocalDate.parse("2013-01-12"));
         cosmos.setOwner(mak);
         mak.getPets().add(cosmos);
